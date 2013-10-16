@@ -6,4 +6,5 @@ gemspec
 group :development do
 	gem "test-unit"
 	gem "guard-test"
+	gem "mongo"
 end
