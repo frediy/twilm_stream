@@ -1,11 +1,12 @@
 # require 'twilm_stream/version'
 require 'rubygems'
 require 'time'
+require 'timerizer'
 require 'tweetstream'
 require 'mongo'
 
 module TwilmStream
-	class Twilm
+	class Harvester
 		def initialize
 			TweetStream.configure do |config|
 				config.consumer_key = '1234'
@@ -60,8 +61,4 @@ module TwilmStream
 	end
 end
 
-TweetStream::Client.new.on_error do |message|
-  p message
-end.track("movie") do |status|
-  p status.text
-end
+TwilmStream::Harvester.new
